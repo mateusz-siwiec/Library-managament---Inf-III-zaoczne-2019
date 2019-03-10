@@ -10,6 +10,7 @@ sytem bedzie udostepnial opcje takie jak:
 - wypozyczanie ksiazek
 - podglad wszystkich ksiazek dostepnych w bibliotece
 - sprawdzanie statystyk dla swojego konta ( czyli np. uzytkownik bedzie mógl podgladnac ilosc swoich wypozyczen, ilosc kar, oraz szczególy dotyczace kazdego wypozyczenia)
+
 Jesli zalogujemy sie do aplikacji jako bibliotekarz to bedziemy mieli opcje takie jak: 
 - Operacje CRUD'owe na czytelnikach
 - Operacje CRUD'owe na ksiazkach
