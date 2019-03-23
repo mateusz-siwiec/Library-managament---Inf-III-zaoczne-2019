@@ -1,5 +1,5 @@
 # System obslugi biblioteki
-** Programowanie zespołowe **
+**Programowanie zespołowe**
 
 
 ## Opis projektu  
@@ -35,10 +35,18 @@ Po zalogowaniu jako administrator:
 * Spring Data
 * Maven
 
-
 ## Autorzy
 * Paweł Dybowski
 * Mateusz Siwiec
 * Adrian Toczek
 * Kamil Krzywonos
 * Łukasz Ruszała
+
+## Diagramy UML
+* Diagram przypadków użycia
+![Diagram przypadków użycia](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/UML/diagram%20przypadk%C3%B3w.jpg)
+
+
+
+
+
