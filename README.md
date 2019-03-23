@@ -1,9 +1,8 @@
-# Library-managament---Inf-III-zaoczne-2019
-Programowanie zespołowe
+# System obslugi biblioteki
+** Programowanie zespołowe **
 
-System obslugi biblioteki
 
-##Opis projektu  
+## Opis projektu  
 
 Nasz system bedzie sluzyl do obslugi biblioteki. 
 Na poczatek nowy uzytkownik nie posiadający konta bedzie mogl sie zarejestrowac w naszej aplikacji. Jesli poprawnie przejdzie przez proces rejestracji, będzie mógł się zalogować. Po zalogowaniu jako uzytkownik sytem bedzie udostepnial opcje takie jak:
