@@ -47,6 +47,8 @@ Po zalogowaniu jako administrator:
 ![Diagram przypadków użycia](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/UML/diagram%20przypadk%C3%B3w.jpg)
 
 * Diagram klas
+![Diagram klas](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/UML/diagramklasv2.JPG)
+
 * Diagram sekwencji
 
 
