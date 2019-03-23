@@ -6,16 +6,25 @@ System obslugi biblioteki
 ##Opis projektu  
 
 Nasz system bedzie sluzyl do obslugi biblioteki. 
-Na poczatek potencjalny uzytkownik bedzie mogl sie zarejestrowac do naszej aplikacji. Jesli juz to zrobi to bedzie mogl sie zalogowac. Po zalogowaniu jako uzytkownik sytem bedzie udostepnial opcje takie jak:
+Na poczatek nowy uzytkownik nie posiadający konta bedzie mogl sie zarejestrowac w naszej aplikacji. Jesli poprawnie przejdzie przez proces rejestracji, będzie mógł się zalogować. Po zalogowaniu jako uzytkownik sytem bedzie udostepnial opcje takie jak:
 - wypozyczanie ksiazek
 - podglad wszystkich ksiazek dostepnych w bibliotece
-- sprawdzanie statystyk dla swojego konta ( czyli np. uzytkownik bedzie m?l podgladnac ilosc swoich wypozyczen, ilosc kar, oraz szczeg?y dotyczace kazdego wypozyczenia)
+- sprawdzanie statystyk dla swojego konta ( ilosc swoich wypozyczen, kary, oraz szczeg?y dotyczace kazdego wypozyczenia)
 
 Jesli zalogujemy sie do aplikacji jako bibliotekarz to bedziemy mieli opcje takie jak: 
 - Operacje CRUD'owe na czytelnikach
 - Operacje CRUD'owe na ksiazkach
 - Nakladanie kary na czytelnika
-oraz wiadomo, ze wszystkie takie, kt?e posiada "zwykly uzytkownik".
+- wszystkie, które posiada uzytkownik.
+
+Po zalogowaniu jako administrator:
+- dostęp do wszystkich opcji programu, wraz z opcjami z poziomu użytkownika i bibliotekarza.
+- Operacje CRUD'owe na bibliotekarzach
+
+## Rodzaje użytkowników w aplikacji
+* Administrator 
+* Bibliotekarz
+* Czytelnik
 
 ## Baza danych - dane
 * dane dot. książek - autor, tytuł, data wydania
