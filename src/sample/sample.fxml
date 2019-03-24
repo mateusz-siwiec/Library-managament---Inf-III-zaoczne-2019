@@ -92,6 +92,18 @@
             </AnchorPane>
         </content>
       </Tab>
+      <Tab text="User panel">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="14.0" layoutY="27.0" mnemonicParsing="false" prefHeight="115.0" prefWidth="185.0" text="Borrow book" />
+                  <Button layoutX="236.0" layoutY="27.0" mnemonicParsing="false" prefHeight="115.0" prefWidth="185.0" text="Find book" />
+                  <Button layoutX="453.0" layoutY="27.0" mnemonicParsing="false" prefHeight="115.0" prefWidth="185.0" text="Return book" />
+                  <Button layoutX="120.0" layoutY="166.0" mnemonicParsing="false" prefHeight="115.0" prefWidth="185.0" text="My borrowing books" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
       <Tab text="Book list">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
