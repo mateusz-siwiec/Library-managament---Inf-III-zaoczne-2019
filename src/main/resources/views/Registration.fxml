@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.controllers.RegistrationController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="320.0" style="-fx-background-color: #003366;">
+         <children>
+            <Button fx:id="bRegister" layoutX="41.0" layoutY="423.0" mnemonicParsing="false" onAction="#register" prefWidth="240.0" style="-fx-background-color: #63A4EB;" text="Zarejestruj się" textFill="#ffff99" />
+            <TextField fx:id="tfUsername" layoutX="41.0" layoutY="96.0" prefHeight="25.0" prefWidth="240.0" promptText="Login" />
+            <PasswordField fx:id="pfPassword" layoutX="41.0" layoutY="136.0" prefHeight="25.0" prefWidth="240.0" promptText="Hasło" />
+            <Label layoutX="107.0" layoutY="33.0" text="Biblioteka" textFill="#ffff99">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="bBack" layoutX="41.0" layoutY="474.0" mnemonicParsing="false" onAction="#backToLogin" prefWidth="240.0" style="-fx-background-color: #63A4EB;" text="Wróc" textFill="#ffff99" />
+            <TextField fx:id="tfName" layoutX="41.0" layoutY="180.0" prefHeight="31.0" prefWidth="240.0" promptText="Imię" />
+            <TextField fx:id="tfLastname" layoutX="41.0" layoutY="223.0" prefHeight="31.0" prefWidth="240.0" promptText="Nazwisko" />
+            <TextField fx:id="tfPesel" layoutX="41.0" layoutY="310.0" prefHeight="31.0" prefWidth="240.0" promptText="Pesel" />
+            <TextField fx:id="tfPhone" layoutX="40.0" layoutY="356.0" prefHeight="31.0" prefWidth="240.0" promptText="Numer telefonu" />
+            <TextField layoutX="41.0" layoutY="271.0" prefHeight="25.0" prefWidth="240.0" promptText="Wiek" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

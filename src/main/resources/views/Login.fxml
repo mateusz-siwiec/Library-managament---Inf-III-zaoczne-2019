@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="411.0" prefWidth="320.0" style="-fx-background-color: #003366;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.controllers.LoginController">
+   <children>
+      <Button fx:id="bLogin" layoutX="41.0" layoutY="228.0" mnemonicParsing="false" onAction="#login" prefWidth="240.0" style="-fx-background-color: #63A4EB;" text="Zaloguj się" textFill="#ffff99" />
+      <TextField fx:id="tfUsername" layoutX="41.0" layoutY="148.0" prefHeight="25.0" prefWidth="240.0" promptText="Nazwa użytkownika" />
+      <PasswordField fx:id="pfPassword" layoutX="41.0" layoutY="188.0" prefHeight="25.0" prefWidth="240.0" promptText="Hasło" />
+      <Label layoutX="100.0" layoutY="51.0" text="Zaloguj się" textFill="#ffff99">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="bExit" layoutX="41.0" layoutY="366.0" mnemonicParsing="false" onAction="#exit" prefWidth="240.0" style="-fx-background-color: #63A4EB;" text="Wyjdź" textFill="#ffff99" />
+      <Button fx:id="bRegister" layoutX="41.0" layoutY="269.0" mnemonicParsing="false" onAction="#goToRegister" prefWidth="240.0" style="-fx-background-color: #63A4EB;" text="Zarejestruj się" textFill="#ffff99" />
+      <Label fx:id="lCredentials" layoutX="15.0" layoutY="119.0" text="Niepawidłowa nazwa użytkownika lub hasło" textFill="#ee857c" visible="false" />
+   </children>
+</AnchorPane>
