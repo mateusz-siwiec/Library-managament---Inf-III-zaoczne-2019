@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.controllers.LibrarianPaneController">
+   <children>
+      <TabPane layoutX="-1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Manage books">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="tfTitle" layoutX="53.0" layoutY="49.0" promptText="title" />
+                        <TextField fx:id="tfAuthor" layoutX="53.0" layoutY="101.0" promptText="author" />
+                        <TextField fx:id="tfYearOfPublish" layoutX="53.0" layoutY="151.0" promptText="Year of publish" />
+                        <Label layoutX="101.0" layoutY="20.0" text="Add book" />
+                        <Button fx:id="btnAddBook" layoutX="92.0" layoutY="210.0" mnemonicParsing="false" onAction="#addBook" text="Add book!" />
+                        <TableView fx:id="bookTable" layoutX="251.0" layoutY="20.0" onMouseClicked="#handleBookTable" prefHeight="200.0" prefWidth="344.0">
+                          <columns>
+                            <TableColumn fx:id="columnTitle" prefWidth="124.0" text="Title" />
+                            <TableColumn fx:id="columnAuthor" prefWidth="108.0" text="Author" />
+                              <TableColumn fx:id="columnYearOfPublish" prefWidth="111.0" text="Year of Publish" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="tfNewTitle" layoutX="66.0" layoutY="267.0" prefHeight="25.0" prefWidth="124.0" promptText="New title" />
+                        <TextField fx:id="tfNewAuthor" layoutX="272.0" layoutY="267.0" prefHeight="25.0" prefWidth="124.0" promptText="New Author" />
+                        <TextField fx:id="tfNewYearOfPublish" layoutX="451.0" layoutY="267.0" prefHeight="25.0" prefWidth="124.0" promptText="New year of publish" />
+                        <Button fx:id="btnEditBook" layoutX="390.0" layoutY="319.0" mnemonicParsing="false" onAction="#editBook" text="Edit book" />
+                        <Button fx:id="btnDeleteBook" layoutX="150.0" layoutY="319.0" mnemonicParsing="false" onAction="#deleteBook" text="Delete book" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Add order">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="Manage orders">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

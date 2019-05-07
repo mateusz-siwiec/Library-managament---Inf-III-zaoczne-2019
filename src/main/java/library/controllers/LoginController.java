@@ -9,7 +9,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import library.entities.Role;
 import javafx.fxml.FXML;
 import library.entities.User;
 
@@ -80,15 +79,15 @@ public class LoginController {
                 screen.activate("AdminPane", stage);
             }
 
-//            if(user.getRole().equals(Role.LIBRARIAN)) {
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/ManagerPane.fxml"));
-//                screen.addScreen("ManagerPane", loader.load());
-//                ManagerPaneController managerPane = loader.getController();
-//                managerPane.takeLoggedUserData(user);
-//                screen.activate("ManagerPane", stage);
-//            }
+            if(user.getRole().equals("LIBRARIAN")) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/LibrarianPane.fxml"));
+                screen.addScreen("LibrarianPane", loader.load());
+                LibrarianPaneController librarianPane = loader.getController();
+                librarianPane.takeLoggedUserData(user);
+                screen.activate("LibrarianPane", stage);
+            }
 //
-//            if(user.getRole().equals(Role.READER)) {
+//            if(user.getRole().equals("READER")) {
 //                screen.addScreen("EmployeePane", FXMLLoader.load(getClass().getResource("/views/EmployeePane.fxml")));
 //                screen.activate("EmployeePane", stage);
 //            }

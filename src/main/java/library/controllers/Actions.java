@@ -1,5 +1,7 @@
 package library.controllers;
 
+import library.entities.Book;
+import library.entities.Order;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -20,7 +22,8 @@ public class Actions {
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
 
         configuration.addAnnotatedClass(User.class);
-//        configuration.addAnnotatedClass(Task.class);
+        configuration.addAnnotatedClass(Order.class);
+        configuration.addAnnotatedClass(Book.class);
 
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties()).build();

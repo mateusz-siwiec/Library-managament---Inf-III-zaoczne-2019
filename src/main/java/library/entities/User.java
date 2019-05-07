@@ -1,8 +1,7 @@
 package library.entities;
 
-import javafx.stage.Screen;
-
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "User")
@@ -34,7 +33,10 @@ public class User {
     private long phoneNumber;
 
     @Column(name = "role")
-    private String  role;
+    private String role;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
 
     public User() {
     }
@@ -50,7 +52,7 @@ public class User {
         this.role = role;
     }
 
-    public User(int id, String login, String password, String name, String surname, int age, long pesel, long phoneNumber , String role) {
+    public User(int id, String login, String password, String name, String surname, int age, long pesel, long phoneNumber, String role) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -61,6 +63,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.role = role;
     }
+
     public User(int id, String login, String password, String name, String surname, int age, long pesel, long phoneNumber) {
         this.id = id;
         this.login = login;

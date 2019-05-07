@@ -16,8 +16,8 @@
       <AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="320.0" style="-fx-background-color: #003366;">
          <children>
             <Button fx:id="bRegister" layoutX="41.0" layoutY="423.0" mnemonicParsing="false" onAction="#register" prefWidth="240.0" style="-fx-background-color: #63A4EB;" text="Zarejestruj się" textFill="#ffff99" />
-            <TextField fx:id="tfUsername" layoutX="41.0" layoutY="96.0" prefHeight="25.0" prefWidth="240.0" promptText="Login" />
-            <PasswordField fx:id="pfPassword" layoutX="41.0" layoutY="136.0" prefHeight="25.0" prefWidth="240.0" promptText="Hasło" />
+            <TextField fx:id="tfLogin" layoutX="41.0" layoutY="96.0" prefHeight="25.0" prefWidth="240.0" promptText="Login" />
+            <PasswordField fx:id="tfPassword" layoutX="41.0" layoutY="136.0" prefHeight="25.0" prefWidth="240.0" promptText="Hasło" />
             <Label layoutX="107.0" layoutY="33.0" text="Biblioteka" textFill="#ffff99">
                <font>
                   <Font size="25.0" />
@@ -25,10 +25,10 @@
             </Label>
             <Button fx:id="bBack" layoutX="41.0" layoutY="474.0" mnemonicParsing="false" onAction="#backToLogin" prefWidth="240.0" style="-fx-background-color: #63A4EB;" text="Wróc" textFill="#ffff99" />
             <TextField fx:id="tfName" layoutX="41.0" layoutY="180.0" prefHeight="31.0" prefWidth="240.0" promptText="Imię" />
-            <TextField fx:id="tfLastname" layoutX="41.0" layoutY="223.0" prefHeight="31.0" prefWidth="240.0" promptText="Nazwisko" />
+            <TextField fx:id="tfSurname" layoutX="41.0" layoutY="223.0" prefHeight="31.0" prefWidth="240.0" promptText="Nazwisko" />
             <TextField fx:id="tfPesel" layoutX="41.0" layoutY="310.0" prefHeight="31.0" prefWidth="240.0" promptText="Pesel" />
-            <TextField fx:id="tfPhone" layoutX="40.0" layoutY="356.0" prefHeight="31.0" prefWidth="240.0" promptText="Numer telefonu" />
-            <TextField layoutX="41.0" layoutY="271.0" prefHeight="25.0" prefWidth="240.0" promptText="Wiek" />
+            <TextField fx:id="tfPhoneNumber" layoutX="40.0" layoutY="356.0" prefHeight="31.0" prefWidth="240.0" promptText="Numer telefonu" />
+            <TextField fx:id="tfAge" layoutX="41.0" layoutY="271.0" prefHeight="25.0" prefWidth="240.0" promptText="Wiek" />
          </children>
       </AnchorPane>
    </children>
