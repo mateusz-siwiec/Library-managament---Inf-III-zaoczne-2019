@@ -5,17 +5,19 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import library.entities.Book;
+import library.entities.Orders;
 import library.entities.User;
 import org.hibernate.Transaction;
 
 import java.net.URL;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -37,6 +39,14 @@ public class LibrarianPaneController implements Initializable {
     @FXML
     private TextField tfNewYearOfPublish;
     @FXML
+    private ComboBox<User> comboUsers;
+    @FXML
+    private ComboBox<Book> comboBooks;
+    @FXML
+    private DatePicker dateFrom;
+    @FXML
+    private DatePicker dateTo;
+    @FXML
     private Button btnAddBook;
     @FXML
     private Button btnDeleteBook;
@@ -50,6 +60,8 @@ public class LibrarianPaneController implements Initializable {
     private TableColumn<Book, String> columnYearOfPublish;
     @FXML
     private TableView<Book> bookTable;
+    @FXML
+    private Label labelInfo;
 
     private ObservableList<Book> ObservableListBooks;
 
@@ -64,6 +76,26 @@ public class LibrarianPaneController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         actions.initDatabase();
         loadBookDataFromDatabaseIntoTable(null);
+        refreshBookTable();
+
+        List<User> allUsers = actions.getAllUsers();
+        ObservableList<User> users = FXCollections.observableArrayList(allUsers);
+        comboUsers.setItems(users);
+
+        List<Book> allBooks = actions.getAllBooks();
+        ObservableList<Book> books = FXCollections.observableArrayList(allBooks);
+        comboBooks.setItems(books);
+//        columnAuthor.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Book, String>, ObservableValue<String>>() {
+//            @Override
+//            public ObservableValue<String> call(TableColumn.CellDataFeatures<Book, String> param) {
+//                if (param.getValue() != null) {
+//                    return new SimpleStringProperty(param.getValue().getAuthor());
+//                }
+//                else {
+//                    return null;
+//                }
+//            }
+//        });
     }
 
     @FXML
@@ -115,6 +147,7 @@ public class LibrarianPaneController implements Initializable {
             tfNewTitle.setText(selected.getTitle());
             tfNewAuthor.setText(selected.getAuthor());
         }
+        refreshBookTable();
     }
 
     @FXML
@@ -144,6 +177,30 @@ public class LibrarianPaneController implements Initializable {
         tfNewYearOfPublish.clear();
         tfNewAuthor.clear();
         tfNewTitle.clear();
+    }
+
+    @FXML
+    private void addOrder(ActionEvent event){
+        User user = comboUsers.getSelectionModel().getSelectedItem();
+        Book book = comboBooks.getSelectionModel().getSelectedItem();
+        List<Integer> allBookIds = actions.getAllBookIds();
+
+        if(!allBookIds.contains(book.getId())) {
+            String stringDateFrom = getDate(dateFrom);
+            String stringDateTo = getDate(dateTo);
+            Orders orders = new Orders(user, book, stringDateFrom, stringDateTo);
+            actions.saveToDatabase(orders);
+        } else {
+            labelInfo.setText("The book is currently borrowed");
+        }
+        refreshBookTable();
+    }
+
+    private String getDate(DatePicker dateTo) {
+        LocalDate localDate = dateTo.getValue();
+        Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+        Date date = Date.from(instant);
+        return date.toString();
     }
 
 }

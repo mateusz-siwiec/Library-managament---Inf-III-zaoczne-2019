@@ -1,7 +1,7 @@
 package library.controllers;
 
 import library.entities.Book;
-import library.entities.Order;
+import library.entities.Orders;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -11,6 +11,7 @@ import org.hibernate.service.ServiceRegistry;
 import library.entities.User;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Actions {
     
@@ -22,7 +23,7 @@ public class Actions {
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
 
         configuration.addAnnotatedClass(User.class);
-        configuration.addAnnotatedClass(Order.class);
+        configuration.addAnnotatedClass(Orders.class);
         configuration.addAnnotatedClass(Book.class);
 
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
@@ -52,6 +53,17 @@ public class Actions {
         List<User> users = session.createQuery("from User").getResultList();
 
         return users;
+    }
+
+    public List<Book> getAllBooks(){
+        List<Book> books = session.createQuery("from Book").getResultList();
+        return books;
+    }
+
+    public List<Integer> getAllBookIds(){
+        List<Orders> orders = (List<Orders>) session.createQuery("from Orders").getResultList();
+        return orders.stream().map(order -> order.getBook().getId())
+                .collect(Collectors.toList());
     }
 
     public void saveToDatabase(Object object) {

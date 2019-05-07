@@ -36,7 +36,7 @@ public class User {
     private String role;
 
     @OneToMany(mappedBy = "user")
-    private List<Order> orders;
+    private List<Orders> orders;
 
     public User() {
     }
@@ -150,5 +150,10 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return name+ " " + surname;
     }
 }

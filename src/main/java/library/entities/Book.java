@@ -16,7 +16,7 @@ public class Book {
     @Column(name = "yearOfPublish")
     private int yearOfPublish;
     @OneToOne(mappedBy = "book")
-    private Order order;
+    private Orders orders;
 
     public Book(String title, String author, int yearOfPublish) {
         this.title = title;
@@ -65,11 +65,16 @@ public class Book {
         this.yearOfPublish = yearOfPublish;
     }
 
-    public Order getOrder() {
-        return order;
+    public Orders getOrders() {
+        return orders;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrders(Orders orders) {
+        this.orders = orders;
+    }
+
+    @Override
+    public String toString() {
+        return title;
     }
 }

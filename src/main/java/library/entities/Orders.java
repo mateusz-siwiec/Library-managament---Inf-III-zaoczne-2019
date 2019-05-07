@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "orders")
-public class Order {
+public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true)
@@ -17,18 +17,18 @@ public class Order {
     @JoinColumn(name = "book_id")
     private Book book;
     @Column(name = "dateFrom")
-    private Date dateFrom;
+    private String dateFrom;
     @Column(name = "dateTo")
-    private Date dateTo;
+    private String dateTo;
 
-    public Order(User user, Book book, Date dateFrom, Date dateTo) {
+    public Orders(User user, Book book, String dateFrom, String dateTo) {
         this.user = user;
         this.book = book;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
     }
 
-    public Order() {
+    public Orders() {
     }
 
     public int getId() {
@@ -55,19 +55,19 @@ public class Order {
         this.book = book;
     }
 
-    public Date getDateFrom() {
+    public String getDateFrom() {
         return dateFrom;
     }
 
-    public void setDateFrom(Date dateFrom) {
+    public void setDateFrom(String dateFrom) {
         this.dateFrom = dateFrom;
     }
 
-    public Date getDateTo() {
+    public String getDateTo() {
         return dateTo;
     }
 
-    public void setDateTo(Date dateTo) {
+    public void setDateTo(String dateTo) {
         this.dateTo = dateTo;
     }
 }
