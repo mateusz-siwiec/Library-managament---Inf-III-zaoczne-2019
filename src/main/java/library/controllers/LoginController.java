@@ -41,6 +41,8 @@ public class LoginController {
 
     private Stage stage;
 
+    public static int id;
+
     @FXML
     private void initialize() throws Exception {
         actions.initDatabase();
@@ -79,6 +81,7 @@ public class LoginController {
             System.out.println("User " + user.getLogin() + " logged in as " + user.getRole());
 
             if (user.getRole().equals("ADMIN")) {
+                id = user.getId();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AdminPane.fxml"));
                 screen.addScreen("AdminPane", loader.load());
                 AdminPaneController adminPaneController = loader.getController();
@@ -87,22 +90,25 @@ public class LoginController {
             }
 
             if (user.getRole().equals("LIBRARIAN")) {
+                id = user.getId();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/LibrarianPane.fxml"));
                 screen.addScreen("LibrarianPane", loader.load());
                 LibrarianPaneController librarianPane = loader.getController();
                 librarianPane.takeLoggedUserData(user);
                 screen.activate("LibrarianPane", stage);
             }
-//
-//            if(user.getRole().equals("READER")) {
-//                screen.addScreen("EmployeePane", FXMLLoader.load(getClass().getResource("/views/EmployeePane.fxml")));
-//                screen.activate("EmployeePane", stage);
-//            }
+
+            if(user.getRole().equals("READER")) {
+                id = user.getId();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/ReaderPane.fxml"));
+                screen.addScreen("ReaderPane", loader.load());
+                ReaderPaneController readerPaneController = loader.getController();
+                readerPaneController.takeLoggedUserData(user);
+                screen.activate("ReaderPane", stage);
+            }
 
         } else {
-            System.out.println("Bad credentials");
-
-            lCredentials.setText("Nieprawidlowa nazwa uzytkownika lub haslo");
+            lCredentials.setText("Bad credentials");
             lCredentials.setVisible(true);
         }
     }

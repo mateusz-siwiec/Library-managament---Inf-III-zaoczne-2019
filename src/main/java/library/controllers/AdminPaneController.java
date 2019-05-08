@@ -93,7 +93,7 @@ public class AdminPaneController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         actions.initDatabase();
-
+        userId = LoginController.id;
         loadUsersDataFromDatabaseIntoTable(null);
         roleCombobox.getItems().addAll("ADMIN", "LIBRARIAN", "READER");
         editRoleCombobox.getItems().addAll("ADMIN", "LIBRARIAN", "READER");

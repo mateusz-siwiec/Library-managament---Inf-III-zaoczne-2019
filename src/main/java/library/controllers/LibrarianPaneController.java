@@ -119,6 +119,7 @@ public class LibrarianPaneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        userId = LoginController.id;
         actions.initDatabase();
         loadBookDataFromDatabaseIntoTable(null);
         loadOrderDataFromDatabaseIntoTable(null);

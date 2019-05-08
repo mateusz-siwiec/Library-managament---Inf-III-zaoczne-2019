@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.controllers.ReaderPaneController">
+   <children>
+      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Your orders">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="userOrderTable" prefHeight="378.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="columnFrom" prefWidth="173.0" text="From" />
+                            <TableColumn fx:id="columnTo" minWidth="0.0" prefWidth="146.0" text="To" />
+                              <TableColumn fx:id="columnBookTitle" prefWidth="139.0" text="Book title" />
+                              <TableColumn fx:id="columnBookAuthor" prefWidth="141.0" text="Book author" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Ask about book">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="comboBookAvailbility" layoutX="225.0" layoutY="100.0" prefWidth="150.0" />
+                        <Label layoutX="239.0" layoutY="58.0" text="Check book availability" />
+                        <Button layoutX="274.0" layoutY="173.0" mnemonicParsing="false" onAction="#checkBookAvailbility" text="Check!" />
+                        <Label fx:id="availbility" layoutX="225.0" layoutY="264.0" text="Label" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Profile">
+               <content>
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="823.0">
+                     <children>
+                        <Text layoutX="363.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile panel">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="tfName" disable="true" layoutX="141.0" layoutY="134.0" />
+                        <TextField fx:id="tfSurname" disable="true" layoutX="141.0" layoutY="184.0" />
+                        <TextField fx:id="tfPhoneNumber" disable="true" layoutX="141.0" layoutY="234.0" />
+                        <TextField fx:id="tfAge" disable="true" layoutX="141.0" layoutY="284.0" />
+                        <Text layoutX="26.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :" />
+                        <Text layoutX="26.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname :" />
+                        <Text layoutX="26.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number :" />
+                        <Text layoutX="26.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
+                        <TextField fx:id="tfPassword" disable="true" layoutX="141.0" layoutY="334.0" />
+                        <Text layoutX="26.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :" />
+                        <Button layoutX="348.0" layoutY="173.0" mnemonicParsing="false" onAction="#selfEdit" prefHeight="47.0" prefWidth="98.0" text="Edit data" />
+                        <TextField fx:id="tfUsername" disable="true" layoutX="141.0" layoutY="84.0" />
+                        <Text layoutX="25.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login:" />
+                        <TextField fx:id="tfPesel" disable="true" layoutX="141.0" layoutY="384.0" />
+                        <Text layoutX="27.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pesel :" />
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
