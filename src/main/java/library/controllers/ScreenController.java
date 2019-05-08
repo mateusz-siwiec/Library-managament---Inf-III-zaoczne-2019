@@ -14,11 +14,11 @@ public class ScreenController {
         this.main = main;
     }
 
-    protected void addScreen(String name, Pane pane){
+    protected void addScreen(String name, Pane pane) {
         screenMap.put(name, pane);
     }
 
-    protected void removeScreen(String name){
+    protected void removeScreen(String name) {
         screenMap.remove(name);
     }
 

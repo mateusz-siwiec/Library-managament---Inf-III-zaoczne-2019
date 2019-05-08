@@ -2,22 +2,22 @@ package library.controllers;
 
 import library.entities.Book;
 import library.entities.Orders;
+import library.entities.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-import library.entities.User;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Actions {
-    
+
     public Session session;
     public SessionFactory sessionFactory;
-    
+
     public void initDatabase() {
 
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
@@ -32,11 +32,11 @@ public class Actions {
         this.sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         this.session = sessionFactory.openSession();
     }
-    
+
     public Session getSession() {
         return this.session;
     }
-    
+
     public SessionFactory getSessionFactory() {
         return this.sessionFactory;
     }
@@ -49,21 +49,26 @@ public class Actions {
     public List<User> getAllUsers() {
 //        Query query = session.createQuery("from User");
 //        List<User> users = query.getResultList();
-        
+
         List<User> users = session.createQuery("from User").getResultList();
 
         return users;
     }
 
-    public List<Book> getAllBooks(){
+    public List<Book> getAllBooks() {
         List<Book> books = session.createQuery("from Book").getResultList();
         return books;
     }
 
-    public List<Integer> getAllBookIds(){
+    public List<Integer> getAllBookIds() {
         List<Orders> orders = (List<Orders>) session.createQuery("from Orders").getResultList();
         return orders.stream().map(order -> order.getBook().getId())
                 .collect(Collectors.toList());
+    }
+
+    public List<Orders> getAllOrders() {
+        List<Orders> orders = session.createQuery("from Orders").getResultList();
+        return orders;
     }
 
     public void saveToDatabase(Object object) {
@@ -83,5 +88,5 @@ public class Actions {
         session.merge(object);
         transaction.commit();
     }
-   
+
 }

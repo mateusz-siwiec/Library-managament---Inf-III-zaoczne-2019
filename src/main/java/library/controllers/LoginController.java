@@ -2,6 +2,7 @@ package library.controllers;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,7 +10,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.fxml.FXML;
 import library.entities.User;
 
 import java.io.IOException;
@@ -21,16 +21,23 @@ public class LoginController {
     private List<User> users;
     private Actions actions = new Actions();
     private ScreenController screen;
-    @FXML private AnchorPane anchorPane;
+    @FXML
+    private AnchorPane anchorPane;
 
-    @FXML private Label lCredentials;
+    @FXML
+    private Label lCredentials;
 
-    @FXML private TextField tfUsername;
-    @FXML private PasswordField pfPassword;
+    @FXML
+    private TextField tfUsername;
+    @FXML
+    private PasswordField pfPassword;
 
-    @FXML private Button bLogin;
-    @FXML private Button bRegister;
-    @FXML private Button bExit;
+    @FXML
+    private Button bLogin;
+    @FXML
+    private Button bRegister;
+    @FXML
+    private Button bExit;
 
     private Stage stage;
 
@@ -39,7 +46,7 @@ public class LoginController {
         actions.initDatabase();
         users = actions.getAllUsers();
 
-        if(users.isEmpty()) {
+        if (users.isEmpty()) {
 
             User user1 = new User("siwy", "start123", "Mateusz", "Siwiec", 30, 11111111111L, 111111111, "ADMIN");
             User user2 = new User("janek", "start123", "Jan", "Kowalski", 30, 11111111111L, 111111111, "LIBRARIAN");
@@ -71,7 +78,7 @@ public class LoginController {
             User user = userAuth.get(0);
             System.out.println("User " + user.getLogin() + " logged in as " + user.getRole());
 
-            if(user.getRole().equals("ADMIN")) {
+            if (user.getRole().equals("ADMIN")) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AdminPane.fxml"));
                 screen.addScreen("AdminPane", loader.load());
                 AdminPaneController adminPaneController = loader.getController();
@@ -79,7 +86,7 @@ public class LoginController {
                 screen.activate("AdminPane", stage);
             }
 
-            if(user.getRole().equals("LIBRARIAN")) {
+            if (user.getRole().equals("LIBRARIAN")) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/LibrarianPane.fxml"));
                 screen.addScreen("LibrarianPane", loader.load());
                 LibrarianPaneController librarianPane = loader.getController();

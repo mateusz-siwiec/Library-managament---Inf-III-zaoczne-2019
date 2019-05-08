@@ -115,6 +115,7 @@ public class AdminPaneController implements Initializable {
 
         startLabel.setText("Witaj " + user.getName() + " " + user.getSurname());
     }
+
     @FXML
     private void loadUsersDataFromDatabaseIntoTable(ActionEvent event) {
         Transaction transaction = actions.session.beginTransaction();
@@ -135,6 +136,7 @@ public class AdminPaneController implements Initializable {
         ObservableList usersList = FXCollections.observableArrayList(allUsers);
         editUserTable.setItems(usersList);
     }
+
     @FXML
     private void addUser(ActionEvent event) {
 
@@ -154,6 +156,7 @@ public class AdminPaneController implements Initializable {
         clearAddUserFields();
         refreshEditUsersTable();
     }
+
     private void clearAddUserFields() {
         addtfLogin.clear();
         addtfName.clear();
@@ -163,6 +166,7 @@ public class AdminPaneController implements Initializable {
         addtfPhoneNumber.clear();
         roleCombobox.getSelectionModel().clearSelection();
     }
+
     @FXML
     private void refreshEditUsersTable() {
 
@@ -188,7 +192,7 @@ public class AdminPaneController implements Initializable {
         int id = editUserTable.getSelectionModel().getSelectedItem().getId();
         String role = editRoleCombobox.getSelectionModel().getSelectedItem();
 
-        User userEdit = new User(id,login, password, name, surname, age, pesel, phoneNumber , role);
+        User userEdit = new User(id, login, password, name, surname, age, pesel, phoneNumber, role);
 
         actions.updateObject(userEdit);
 
@@ -196,6 +200,7 @@ public class AdminPaneController implements Initializable {
 
         refreshEditUsersTable();
     }
+
     private void clearEditUserFields() {
         addtfLogin1.clear();
         addtfName1.clear();

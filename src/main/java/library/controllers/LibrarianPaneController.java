@@ -1,5 +1,7 @@
 package library.controllers;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 import library.entities.Book;
 import library.entities.Orders;
 import library.entities.User;
@@ -59,43 +62,81 @@ public class LibrarianPaneController implements Initializable {
     @FXML
     private TableColumn<Book, String> columnYearOfPublish;
     @FXML
+    private TableColumn<Orders, String> columnReaderLogin;
+    @FXML
+    private TableColumn<Orders, String> columnReaderName;
+    @FXML
+    private TableColumn<Orders, String> columnReaderSurname;
+    @FXML
+    private TableColumn<Orders, String> columnOrderBookTitle;
+    @FXML
+    private TableColumn<Orders, String> columnOrderBookAuthor;
+    @FXML
+    private TableColumn<Orders, String> columnDateFrom;
+    @FXML
+    private TableColumn<Orders, String> columnDateTo;
+    @FXML
     private TableView<Book> bookTable;
     @FXML
+    private TableView<Orders> ordersTable;
+    @FXML
     private Label labelInfo;
+    @FXML
+    private TextField tfUsername;
+    @FXML
+    private TextField tfName;
+    @FXML
+    private TextField tfSurname;
+    @FXML
+    private TextField tfPhoneNumber;
+    @FXML
+    private TextField tfAge;
+    @FXML
+    private TextField tfPassword;
+    @FXML
+    private TextField tfPesel;
 
     private ObservableList<Book> ObservableListBooks;
+
 
     private Actions actions = new Actions();
 
 
     public void takeLoggedUserData(User user) {
         userId = user.getId();
+        String phoneNumber = String.valueOf(user.getPhoneNumber());
+        String pesel = String.valueOf(user.getPesel());
+        userId = user.getId();
+
+        tfUsername.setText(user.getLogin());
+        tfName.setText(user.getName());
+        tfSurname.setText(user.getSurname());
+        tfPhoneNumber.setText(phoneNumber);
+        tfAge.setText(String.valueOf(user.getAge()));
+        tfPassword.setText(user.getPassword());
+        tfPesel.setText(pesel);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         actions.initDatabase();
         loadBookDataFromDatabaseIntoTable(null);
+        loadOrderDataFromDatabaseIntoTable(null);
         refreshBookTable();
+        refreshUsersComboBox();
+        refreshBooksComboBox();
+    }
 
-        List<User> allUsers = actions.getAllUsers();
-        ObservableList<User> users = FXCollections.observableArrayList(allUsers);
-        comboUsers.setItems(users);
-
+    private void refreshBooksComboBox() {
         List<Book> allBooks = actions.getAllBooks();
         ObservableList<Book> books = FXCollections.observableArrayList(allBooks);
         comboBooks.setItems(books);
-//        columnAuthor.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Book, String>, ObservableValue<String>>() {
-//            @Override
-//            public ObservableValue<String> call(TableColumn.CellDataFeatures<Book, String> param) {
-//                if (param.getValue() != null) {
-//                    return new SimpleStringProperty(param.getValue().getAuthor());
-//                }
-//                else {
-//                    return null;
-//                }
-//            }
-//        });
+    }
+
+    private void refreshUsersComboBox() {
+        List<User> allUsers = actions.getAllUsers();
+        ObservableList<User> users = FXCollections.observableArrayList(allUsers);
+        comboUsers.setItems(users);
     }
 
     @FXML
@@ -109,6 +150,7 @@ public class LibrarianPaneController implements Initializable {
         tfTitle.clear();
         tfYearOfPublish.clear();
         tfAuthor.clear();
+        refreshBooksComboBox();
     }
 
     @FXML
@@ -126,6 +168,66 @@ public class LibrarianPaneController implements Initializable {
         bookTable.setItems(booksList);
     }
 
+
+    @FXML
+    private void loadOrderDataFromDatabaseIntoTable(ActionEvent event) {
+        Transaction transaction = actions.session.beginTransaction();
+        List allOrders = actions.session.createCriteria(Orders.class).list();
+        transaction.commit();
+
+        columnReaderLogin.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Orders, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Orders, String> param) {
+                String readerLogin = param.getValue().getUser().getLogin();
+                return new SimpleStringProperty(readerLogin);
+            }
+        });
+        columnReaderName.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Orders, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Orders, String> param) {
+                String readerLogin = param.getValue().getUser().getName();
+                return new SimpleStringProperty(readerLogin);
+            }
+        });
+        columnReaderSurname.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Orders, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Orders, String> param) {
+                String readerLogin = param.getValue().getUser().getSurname();
+                return new SimpleStringProperty(readerLogin);
+            }
+        });
+        columnDateTo.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Orders, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Orders, String> param) {
+                String readerLogin = param.getValue().getDateTo();
+                return new SimpleStringProperty(readerLogin);
+            }
+        });
+        columnDateFrom.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Orders, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Orders, String> param) {
+                String readerLogin = param.getValue().getDateFrom();
+                return new SimpleStringProperty(readerLogin);
+            }
+        });
+        columnOrderBookAuthor.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Orders, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Orders, String> param) {
+                String readerLogin = param.getValue().getBook().getAuthor();
+                return new SimpleStringProperty(readerLogin);
+            }
+        });
+        columnOrderBookTitle.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Orders, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Orders, String> param) {
+                String readerLogin = param.getValue().getBook().getTitle();
+                return new SimpleStringProperty(readerLogin);
+            }
+        });
+        ObservableList orderList = FXCollections.observableArrayList(allOrders);
+        ordersTable.setItems(orderList);
+    }
+
     @FXML
     private void refreshBookTable() {
         Transaction transaction = actions.session.beginTransaction();
@@ -135,6 +237,17 @@ public class LibrarianPaneController implements Initializable {
         ObservableList booksList = FXCollections.observableArrayList(allBooks);
         bookTable.setItems(booksList);
         bookTable.refresh();
+    }
+
+    @FXML
+    private void refreshOrderTable() {
+        Transaction transaction = actions.session.beginTransaction();
+        List allOrders = actions.session.createCriteria(Orders.class).list();
+        transaction.commit();
+
+        ObservableList orderList = FXCollections.observableArrayList(allOrders);
+        ordersTable.setItems(orderList);
+        ordersTable.refresh();
     }
 
     @FXML
@@ -162,6 +275,7 @@ public class LibrarianPaneController implements Initializable {
         actions.updateObject(editBook);
         clearBookFields();
         refreshBookTable();
+        refreshBooksComboBox();
     }
 
     @FXML
@@ -170,6 +284,7 @@ public class LibrarianPaneController implements Initializable {
         actions.deleteFromDatabase(book);
         refreshBookTable();
         clearBookFields();
+        refreshBooksComboBox();
     }
 
     @FXML
@@ -180,20 +295,31 @@ public class LibrarianPaneController implements Initializable {
     }
 
     @FXML
-    private void addOrder(ActionEvent event){
+    private void addOrder(ActionEvent event) {
         User user = comboUsers.getSelectionModel().getSelectedItem();
         Book book = comboBooks.getSelectionModel().getSelectedItem();
         List<Integer> allBookIds = actions.getAllBookIds();
 
-        if(!allBookIds.contains(book.getId())) {
+        if (!allBookIds.contains(book.getId())) {
             String stringDateFrom = getDate(dateFrom);
             String stringDateTo = getDate(dateTo);
             Orders orders = new Orders(user, book, stringDateFrom, stringDateTo);
             actions.saveToDatabase(orders);
+            labelInfo.setText("Order successfully");
         } else {
             labelInfo.setText("The book is currently borrowed");
         }
         refreshBookTable();
+        refreshUsersComboBox();
+        refreshBooksComboBox();
+        refreshOrderTable();
+    }
+
+    @FXML
+    private void deleteOrder(ActionEvent event) {
+        Orders order = ordersTable.getSelectionModel().getSelectedItem();
+        actions.deleteFromDatabase(order);
+        refreshOrderTable();
     }
 
     private String getDate(DatePicker dateTo) {
@@ -203,4 +329,42 @@ public class LibrarianPaneController implements Initializable {
         return date.toString();
     }
 
+    @FXML
+    private void selfEdit(ActionEvent event) {
+
+        if (tfName.isDisabled()) {
+            tfName.setDisable(false);
+            tfSurname.setDisable(false);
+            tfAge.setDisable(false);
+            tfPhoneNumber.setDisable(false);
+            tfPassword.setDisable(false);
+            tfUsername.setDisable(false);
+            tfPesel.setDisable(false);
+        } else {
+
+            String username = tfUsername.getText();
+            String firstname = tfName.getText();
+            String surname = tfSurname.getText();
+            int age = Integer.parseInt(tfAge.getText());
+            int phone = Integer.parseInt(tfPhoneNumber.getText());
+            String password = tfPassword.getText();
+            long pesel = Integer.parseInt(tfPesel.getText());
+
+
+            User userEdit = new User(userId, username, password, firstname, surname, age, pesel, phone, "LIBRARIAN");
+
+            actions.updateObject(userEdit);
+
+            tfName.setDisable(true);
+            tfSurname.setDisable(true);
+            tfAge.setDisable(true);
+            tfPhoneNumber.setDisable(true);
+            tfPassword.setDisable(true);
+            tfUsername.setDisable(true);
+            tfPesel.setDisable(true);
+        }
+
+        refreshOrderTable();
+
+    }
 }

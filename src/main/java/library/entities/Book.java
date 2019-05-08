@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id" , unique = true)
+    @Column(name = "id", unique = true)
     private int id;
     @Column(name = "title")
     private String title;
@@ -23,6 +23,7 @@ public class Book {
         this.author = author;
         this.yearOfPublish = yearOfPublish;
     }
+
     public Book(int id, String title, String author, int yearOfPublish) {
         this.id = id;
         this.title = title;

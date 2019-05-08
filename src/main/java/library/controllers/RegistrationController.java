@@ -75,7 +75,7 @@ public class RegistrationController implements Initializable {
         screen.activate("Login", stage);
     }
 
-    public void clearRegisterFields(){
+    public void clearRegisterFields() {
         tfAge.clear();
         tfLogin.clear();
         tfName.clear();
