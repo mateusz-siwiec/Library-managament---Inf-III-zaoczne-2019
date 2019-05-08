@@ -4,18 +4,26 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import library.entities.User;
 import org.hibernate.Transaction;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class AdminPaneController implements Initializable {
+    @FXML
+    private AnchorPane anchorPane;
+    @FXML
+    private Button btnLogout;
     @FXML
     private TextField tfName;
     @FXML
@@ -84,6 +92,10 @@ public class AdminPaneController implements Initializable {
     private TableColumn<User, String> roleColumn;
     @FXML
     private Label startLabel;
+
+    private ScreenController screen;
+
+    private Stage stage;
 
     private ObservableList<User> ObservableListUsers;
 
@@ -275,5 +287,14 @@ public class AdminPaneController implements Initializable {
             tfUsername.setDisable(true);
             tfPesel.setDisable(true);
         }
+    }
+
+    @FXML
+    private void logout(ActionEvent event) throws IOException {
+        stage = (Stage) anchorPane.getScene().getWindow();
+        screen = new ScreenController(btnLogout.getScene());
+
+        screen.addScreen("Login", FXMLLoader.load(getClass().getResource("/views/Login.fxml")));
+        screen.activate("Login", stage);
     }
 }

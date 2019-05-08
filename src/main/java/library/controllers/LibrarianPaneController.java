@@ -6,16 +6,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import library.entities.Book;
 import library.entities.Orders;
 import library.entities.User;
 import org.hibernate.Transaction;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -95,6 +99,14 @@ public class LibrarianPaneController implements Initializable {
     private TextField tfPassword;
     @FXML
     private TextField tfPesel;
+    @FXML
+    private Button btnLogout;
+    @FXML
+    private AnchorPane anchorPane;
+
+    private ScreenController screen;
+
+    private Stage stage;
 
     private ObservableList<Book> ObservableListBooks;
 
@@ -145,7 +157,7 @@ public class LibrarianPaneController implements Initializable {
         String author = tfAuthor.getText();
         String title = tfTitle.getText();
         int yearOfPublish = Integer.parseInt(tfYearOfPublish.getText());
-        Book book = new Book(author, title, yearOfPublish);
+        Book book = new Book(title, author, yearOfPublish);
         actions.saveToDatabase(book);
         refreshBookTable();
         tfTitle.clear();
@@ -367,5 +379,14 @@ public class LibrarianPaneController implements Initializable {
 
         refreshOrderTable();
 
+    }
+
+    @FXML
+    private void logout(ActionEvent event) throws IOException {
+        stage = (Stage) anchorPane.getScene().getWindow();
+        screen = new ScreenController(btnLogout.getScene());
+
+        screen.addScreen("Login", FXMLLoader.load(getClass().getResource("/views/Login.fxml")));
+        screen.activate("Login", stage);
     }
 }

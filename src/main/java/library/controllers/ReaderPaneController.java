@@ -1,19 +1,21 @@
 package library.controllers;
 
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.util.Callback;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import library.entities.Book;
 import library.entities.Orders;
 import library.entities.User;
 import org.hibernate.Transaction;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -50,6 +52,14 @@ public class ReaderPaneController implements Initializable {
     private TextField tfPesel;
     @FXML
     private Label availbility;
+    @FXML
+    private Button btnLogout;
+    @FXML
+    private AnchorPane anchorPane;
+
+    private ScreenController screen;
+
+    private Stage stage;
 
     private Actions actions = new Actions();
 
@@ -128,7 +138,7 @@ public class ReaderPaneController implements Initializable {
             if (param.getValue().getUser().getId() == userId) {
                 String readerLogin = param.getValue().getDateFrom();
                 return new SimpleStringProperty(readerLogin);
-            }else {
+            } else {
                 return null;
             }
         });
@@ -137,7 +147,7 @@ public class ReaderPaneController implements Initializable {
             if (param.getValue().getUser().getId() == userId) {
                 String readerLogin = param.getValue().getDateTo();
                 return new SimpleStringProperty(readerLogin);
-            }else {
+            } else {
                 return null;
             }
         });
@@ -146,7 +156,7 @@ public class ReaderPaneController implements Initializable {
             if (param.getValue().getUser().getId() == userId) {
                 String readerLogin = param.getValue().getBook().getAuthor();
                 return new SimpleStringProperty(readerLogin);
-            }else {
+            } else {
                 return null;
             }
         });
@@ -155,7 +165,7 @@ public class ReaderPaneController implements Initializable {
             if (param.getValue().getUser().getId() == userId) {
                 String readerLogin = param.getValue().getBook().getTitle();
                 return new SimpleStringProperty(readerLogin);
-            }else {
+            } else {
                 return null;
             }
         });
@@ -169,15 +179,25 @@ public class ReaderPaneController implements Initializable {
         ObservableList<Book> books = FXCollections.observableArrayList(allBooks);
         comboBookAvailbility.setItems(books);
     }
+
     @FXML
-    private void checkBookAvailbility(){
+    private void checkBookAvailbility() {
         List<Integer> collect = actions.getAllOrders().stream().map(orders -> orders.getBook().getId())
                 .collect(Collectors.toList());
         int id = comboBookAvailbility.getSelectionModel().getSelectedItem().getId();
-        if(collect.contains(id)){
+        if (collect.contains(id)) {
             availbility.setText("Book isn't available");
-        }else{
+        } else {
             availbility.setText("Book is available");
         }
+    }
+
+    @FXML
+    private void logout(ActionEvent event) throws IOException {
+        stage = (Stage) anchorPane.getScene().getWindow();
+        screen = new ScreenController(btnLogout.getScene());
+
+        screen.addScreen("Login", FXMLLoader.load(getClass().getResource("/views/Login.fxml")));
+        screen.activate("Login", stage);
     }
 }
