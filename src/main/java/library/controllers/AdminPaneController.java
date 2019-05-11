@@ -85,7 +85,7 @@ public class AdminPaneController implements Initializable {
     @FXML
     private TableColumn<User, String> passwordColumn;
     @FXML
-    private TableColumn<User, String> emailColumn;
+    private TableColumn<User, String> ageColumn;
     @FXML
     private TableColumn<User, String> phoneNumberColumn;
     @FXML
@@ -125,7 +125,7 @@ public class AdminPaneController implements Initializable {
         tfPassword.setText(user.getPassword());
         tfPesel.setText(pesel);
 
-        startLabel.setText("Witaj " + user.getName() + " " + user.getSurname());
+        startLabel.setText("Hello " + user.getName() + " " + user.getSurname());
     }
 
     @FXML
@@ -139,6 +139,7 @@ public class AdminPaneController implements Initializable {
         peselColumn.setCellValueFactory(new PropertyValueFactory<>("pesel"));
         loginColumn.setCellValueFactory(new PropertyValueFactory<>("login"));
         passwordColumn.setCellValueFactory(new PropertyValueFactory<>("password"));
+        ageColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
         phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
 
