@@ -16,8 +16,15 @@ public class Book {
     @Column(name = "yearOfPublish")
     private int yearOfPublish;
     @OneToOne(mappedBy = "book")
+
     private Orders orders;
 
+    /**
+     *
+     * @param title
+     * @param author
+     * @param yearOfPublish
+     */
     public Book(String title, String author, int yearOfPublish) {
         this.title = title;
         this.author = author;

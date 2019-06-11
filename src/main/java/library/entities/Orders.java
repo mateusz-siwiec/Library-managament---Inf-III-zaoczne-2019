@@ -2,6 +2,8 @@ package library.entities;
 
 import javax.persistence.*;
 
+
+
 @Entity
 @Table(name = "orders")
 public class Orders {
@@ -20,6 +22,13 @@ public class Orders {
     @Column(name = "dateTo")
     private String dateTo;
 
+    /**
+     *
+     * @param user
+     * @param book
+     * @param dateFrom
+     * @param dateTo
+     */
     public Orders(User user, Book book, String dateFrom, String dateTo) {
         this.user = user;
         this.book = book;
