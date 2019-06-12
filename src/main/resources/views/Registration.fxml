@@ -29,6 +29,7 @@
             <TextField fx:id="tfPesel" layoutX="41.0" layoutY="310.0" prefHeight="31.0" prefWidth="240.0" promptText="Pesel" />
             <TextField fx:id="tfPhoneNumber" layoutX="40.0" layoutY="356.0" prefHeight="31.0" prefWidth="240.0" promptText="Phone number" />
             <TextField fx:id="tfAge" layoutX="41.0" layoutY="271.0" prefHeight="25.0" prefWidth="240.0" promptText="Age" />
+            <Label fx:id="labelWrong" alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="398.0" textAlignment="CENTER" textFill="#ffff99" />
          </children>
       </AnchorPane>
    </children>

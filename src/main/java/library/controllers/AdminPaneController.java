@@ -158,7 +158,7 @@ public class AdminPaneController implements Initializable {
         String surname = addtfSurname.getText();
         int age = Integer.parseInt(addtfAge.getText());
         int phoneNumber = Integer.parseInt(addtfPhoneNumber.getText());
-        String password = addtfPassword.getText();
+        String password = actions.get_SHA_512_SecurePassword(addtfPassword.getText(),"securePassword");
         long pesel = Integer.parseInt(addtfPesel.getText());
         String role = roleCombobox.getSelectionModel().getSelectedItem();
 
@@ -200,7 +200,7 @@ public class AdminPaneController implements Initializable {
         String surname = addtfSurname1.getText();
         int age = Integer.parseInt(addtfAge1.getText());
         int phoneNumber = Integer.parseInt(addtfPhoneNumber1.getText());
-        String password = addtfPassword1.getText();
+        String password = actions.get_SHA_512_SecurePassword(addtfPassword1.getText(),"securePassword");
         long pesel = Integer.parseInt(addtfPesel1.getText());
         int id = editUserTable.getSelectionModel().getSelectedItem().getId();
         String role = editRoleCombobox.getSelectionModel().getSelectedItem();
@@ -272,7 +272,7 @@ public class AdminPaneController implements Initializable {
             String surname = tfSurname.getText();
             int age = Integer.parseInt(tfAge.getText());
             int phone = Integer.parseInt(tfPhoneNumber.getText());
-            String password = tfPassword.getText();
+            String password = actions.get_SHA_512_SecurePassword(tfPassword.getText(), "securePassword");
             long pesel = Integer.parseInt(tfPesel.getText());
 
 

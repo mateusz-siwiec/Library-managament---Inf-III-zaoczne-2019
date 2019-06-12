@@ -50,9 +50,9 @@ public class LoginController {
 
         if (users.isEmpty()) {
 
-            User user1 = new User("siwy", "start123", "Mateusz", "Siwiec", 30, 11111111111L, 111111111, "ADMIN");
-            User user2 = new User("janek", "start123", "Jan", "Kowalski", 30, 11111111111L, 111111111, "LIBRARIAN");
-            User user3 = new User("michu", "start123", "Michal", "Nowak", 30, 11111111111L, 111111111, "READER");
+            User user1 = new User("siwy", actions.get_SHA_512_SecurePassword("start123", "securePassword"), "Mateusz", "Siwiec", 30, 11111111111L, 111111111, "ADMIN");
+            User user2 = new User("janek", actions.get_SHA_512_SecurePassword("start123", "securePassword"), "Jan", "Kowalski", 30, 11111111111L, 111111111, "LIBRARIAN");
+            User user3 = new User("michu", actions.get_SHA_512_SecurePassword("start123", "securePassword"), "Michal", "Nowak", 30, 11111111111L, 111111111, "READER");
 
 
             actions.saveToDatabase(user1);
@@ -69,7 +69,7 @@ public class LoginController {
         stage = (Stage) anchorPane.getScene().getWindow();
         screen = new ScreenController(bLogin.getScene());
 
-        User userToCheck = new User(tfUsername.getText(), pfPassword.getText());
+        User userToCheck = new User(tfUsername.getText(), actions.get_SHA_512_SecurePassword(pfPassword.getText().toString(), "securePassword"));
 
         List<User> userAuth = users.stream()
                 .filter(u -> u.getLogin().equals(userToCheck.getLogin()))

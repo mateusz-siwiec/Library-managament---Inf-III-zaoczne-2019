@@ -1,7 +1,8 @@
 package library.entities;
 
+
+
 import javax.persistence.*;
-import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -12,7 +13,7 @@ public class User {
     @Column(name = "id", unique = true)
     private int id;
 
-    @Column(name = "login")
+    @Column(name = "login", unique = true)
     private String login;
 
     @Column(name = "password")

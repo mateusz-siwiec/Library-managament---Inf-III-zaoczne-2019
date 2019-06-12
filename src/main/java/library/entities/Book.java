@@ -9,18 +9,21 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true)
     private int id;
+
     @Column(name = "title")
     private String title;
+
     @Column(name = "author")
     private String author;
+
     @Column(name = "yearOfPublish")
     private int yearOfPublish;
+
     @OneToOne(mappedBy = "book")
 
     private Orders orders;
 
     /**
-     *
      * @param title
      * @param author
      * @param yearOfPublish

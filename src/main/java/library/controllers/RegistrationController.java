@@ -4,7 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -13,6 +15,9 @@ import library.entities.User;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
 public class RegistrationController implements Initializable {
@@ -43,6 +48,8 @@ public class RegistrationController implements Initializable {
     private TextField tfPhoneNumber;
     @FXML
     private TextField tfAge;
+    @FXML
+    private Label labelWrong;
 
     private Stage stage;
 
@@ -53,19 +60,20 @@ public class RegistrationController implements Initializable {
 
     @FXML
     public void register(ActionEvent event) {
-        User user = new User(
-                tfLogin.getText(),
-                tfPassword.getText(),
-                tfName.getText(),
-                tfSurname.getText(),
-                Integer.parseInt(tfAge.getText()),
-                Long.parseLong(tfPesel.getText()),
-                Integer.parseInt(tfPhoneNumber.getText()), "READER");
-        actions.saveToDatabase(user);
-        System.out.println("Registered " + user.getLogin() + ": " + user.getName() + " " + user.getSurname());
-        clearRegisterFields();
-    }
+            User user = new User(
+                    tfLogin.getText(),
+                    actions.get_SHA_512_SecurePassword(tfPassword.getText(), "securePassword"),
+                    tfName.getText(),
+                    tfSurname.getText(),
+                    Integer.parseInt(tfAge.getText()),
+                    Long.parseLong(tfPesel.getText()),
+                    Integer.parseInt(tfPhoneNumber.getText()), "READER");
 
+            actions.saveToDatabase(user);
+            System.out.println("Registered " + user.getLogin() + ": " + user.getName() + " " + user.getSurname());
+            clearRegisterFields();
+            labelWrong.setVisible(false);
+        }
     @FXML
     public void backToLogin(ActionEvent event) throws IOException {
         stage = (Stage) ap.getScene().getWindow();

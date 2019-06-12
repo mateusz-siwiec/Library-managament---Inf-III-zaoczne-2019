@@ -360,7 +360,7 @@ public class LibrarianPaneController implements Initializable {
             String surname = tfSurname.getText();
             int age = Integer.parseInt(tfAge.getText());
             int phone = Integer.parseInt(tfPhoneNumber.getText());
-            String password = tfPassword.getText();
+            String password = actions.get_SHA_512_SecurePassword(tfPassword.getText(), "securePassword");
             long pesel = Integer.parseInt(tfPesel.getText());
 
 
