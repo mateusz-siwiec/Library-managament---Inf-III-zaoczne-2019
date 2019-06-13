@@ -21,6 +21,9 @@ public class Actions {
     public Session session;
     public SessionFactory sessionFactory;
 
+    /**
+     * Initialize database
+     */
     public void initDatabase() {
 
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
@@ -49,6 +52,10 @@ public class Actions {
         this.sessionFactory.close();
     }
 
+    /**
+     * Getting all users from database
+     * @return
+     */
     public List<User> getAllUsers() {
 //        Query query = session.createQuery("from User");
 //        List<User> users = query.getResultList();
@@ -58,40 +65,70 @@ public class Actions {
         return users;
     }
 
+    /**
+     * Getting all books from database
+     * @return
+     */
     public List<Book> getAllBooks() {
         List<Book> books = session.createQuery("from Book").getResultList();
         return books;
     }
 
+    /**
+     * Getting all book ids from database
+     * @return
+     */
     public List<Integer> getAllBookIds() {
         List<Orders> orders = (List<Orders>) session.createQuery("from Orders").getResultList();
         return orders.stream().map(order -> order.getBook().getId())
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Getting all orders from database
+     * @return
+     */
     public List<Orders> getAllOrders() {
         List<Orders> orders = session.createQuery("from Orders").getResultList();
         return orders;
     }
 
+    /**
+     * Save object to database
+     * @param object
+     */
     public void saveToDatabase(Object object) {
         Transaction transaction = session.beginTransaction();
         session.save(object);
         transaction.commit();
     }
 
+    /**
+     * Delete object from database
+     * @param object
+     */
     public void deleteFromDatabase(Object object) {
         Transaction transaction = session.beginTransaction();
         session.delete(object);
         transaction.commit();
     }
 
+    /**
+     * Update object in database
+     * @param object
+     */
     public void updateObject(Object object) {
         Transaction transaction = session.beginTransaction();
         session.merge(object);
         transaction.commit();
     }
 
+    /**
+     * Hashing passwords
+     * @param passwordToHash
+     * @param salt
+     * @return
+     */
     public String get_SHA_512_SecurePassword(String passwordToHash, String salt) {
         String generatedPassword = null;
         try {

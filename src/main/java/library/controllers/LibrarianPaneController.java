@@ -32,7 +32,9 @@ import java.util.ResourceBundle;
 public class LibrarianPaneController implements Initializable {
 
     private int userId;
-
+    /**
+     * Fields controller class
+     */
     @FXML
     private TextField tfTitle;
     @FXML
@@ -113,7 +115,10 @@ public class LibrarianPaneController implements Initializable {
 
     private Actions actions = new Actions();
 
-
+    /**
+     * Take logged user data
+     * @param user
+     */
     public void takeLoggedUserData(User user) {
         userId = user.getId();
         String phoneNumber = String.valueOf(user.getPhoneNumber());
@@ -140,18 +145,28 @@ public class LibrarianPaneController implements Initializable {
         refreshBooksComboBox();
     }
 
+    /**
+     * Refreshing comboBox with books
+     */
     private void refreshBooksComboBox() {
         List<Book> allBooks = actions.getAllBooks();
         ObservableList<Book> books = FXCollections.observableArrayList(allBooks);
         comboBooks.setItems(books);
     }
 
+    /**
+     * Refreshing comboBox with users
+     */
     private void refreshUsersComboBox() {
         List<User> allUsers = actions.getAllUsers();
         ObservableList<User> users = FXCollections.observableArrayList(allUsers);
         comboUsers.setItems(users);
     }
 
+    /**
+     * Add book to database
+     * @param event
+     */
     @FXML
     private void addBook(ActionEvent event) {
         String author = tfAuthor.getText();
@@ -166,6 +181,10 @@ public class LibrarianPaneController implements Initializable {
         refreshBooksComboBox();
     }
 
+    /**
+     * Load book data from database into table
+     * @param event
+     */
     @FXML
     private void loadBookDataFromDatabaseIntoTable(ActionEvent event) {
         Transaction transaction = actions.session.beginTransaction();
@@ -181,7 +200,10 @@ public class LibrarianPaneController implements Initializable {
         bookTable.setItems(booksList);
     }
 
-
+    /**
+     * Load order data from database into table
+     * @param event
+     */
     @FXML
     private void loadOrderDataFromDatabaseIntoTable(ActionEvent event) {
         Transaction transaction = actions.session.beginTransaction();
@@ -241,6 +263,9 @@ public class LibrarianPaneController implements Initializable {
         ordersTable.setItems(orderList);
     }
 
+    /**
+     * Refreshing book table in application
+     */
     @FXML
     private void refreshBookTable() {
         Transaction transaction = actions.session.beginTransaction();
@@ -252,6 +277,9 @@ public class LibrarianPaneController implements Initializable {
         bookTable.refresh();
     }
 
+    /**
+     * Refresh order table in application
+     */
     @FXML
     private void refreshOrderTable() {
         Transaction transaction = actions.session.beginTransaction();
@@ -263,6 +291,10 @@ public class LibrarianPaneController implements Initializable {
         ordersTable.refresh();
     }
 
+    /**
+     * Handle book table in application
+     * @param event
+     */
     @FXML
     private void handleBookTable(MouseEvent event) {
         Book selected = bookTable.getSelectionModel().getSelectedItem();
@@ -276,6 +308,10 @@ public class LibrarianPaneController implements Initializable {
         refreshBookTable();
     }
 
+    /**
+     * Edit book in database
+     * @param event
+     */
     @FXML
     private void editBook(ActionEvent event) {
         String title = tfNewTitle.getText();
@@ -291,6 +327,10 @@ public class LibrarianPaneController implements Initializable {
         refreshBooksComboBox();
     }
 
+    /**
+     * Delete book from database
+     * @param event
+     */
     @FXML
     private void deleteBook(ActionEvent event) {
         Book book = bookTable.getSelectionModel().getSelectedItem();
@@ -300,6 +340,9 @@ public class LibrarianPaneController implements Initializable {
         refreshBooksComboBox();
     }
 
+    /**
+     * Clear book fields in application
+     */
     @FXML
     private void clearBookFields() {
         tfNewYearOfPublish.clear();
@@ -307,6 +350,10 @@ public class LibrarianPaneController implements Initializable {
         tfNewTitle.clear();
     }
 
+    /**
+     * Add order to database
+     * @param event
+     */
     @FXML
     private void addOrder(ActionEvent event) {
         User user = comboUsers.getSelectionModel().getSelectedItem();
@@ -328,6 +375,10 @@ public class LibrarianPaneController implements Initializable {
         refreshOrderTable();
     }
 
+    /**
+     * Delete order from database
+     * @param event
+     */
     @FXML
     private void deleteOrder(ActionEvent event) {
         Orders order = ordersTable.getSelectionModel().getSelectedItem();
@@ -335,6 +386,11 @@ public class LibrarianPaneController implements Initializable {
         refreshOrderTable();
     }
 
+    /**
+     * Getting date
+     * @param dateTo
+     * @return
+     */
     private String getDate(DatePicker dateTo) {
         LocalDate localDate = dateTo.getValue();
         Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
@@ -342,6 +398,10 @@ public class LibrarianPaneController implements Initializable {
         return date.toString();
     }
 
+    /**
+     * Edit self data
+     * @param event
+     */
     @FXML
     private void selfEdit(ActionEvent event) {
 
@@ -381,6 +441,11 @@ public class LibrarianPaneController implements Initializable {
 
     }
 
+    /**
+     * Logout from application
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void logout(ActionEvent event) throws IOException {
         stage = (Stage) anchorPane.getScene().getWindow();

@@ -45,11 +45,40 @@
         <artifactId>bcprov-jdk15on</artifactId>
         <version>1.56</version>
     </dependency>
-    <!--<dependency>-->
-        <!--<groupId>org.hibernate</groupId>-->
-        <!--<version>5.2.4.Final</version>-->
-        <!--<artifactId>hibernate-validator</artifactId>-->
-    <!--</dependency>-->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.testfx</groupId>
+        <artifactId>testfx-junit</artifactId>
+        <version>4.0.15-alpha</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.3.2</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>javax.el</groupId>
+        <artifactId>javax.el-api</artifactId>
+        <version>2.2.4</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.glassfish.web</groupId>
+        <artifactId>javax.el</artifactId>
+        <version>2.2.4</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <version>5.2.4.Final</version>
+        <artifactId>hibernate-validator</artifactId>
+    </dependency>
 
 </dependencies>
 </project>

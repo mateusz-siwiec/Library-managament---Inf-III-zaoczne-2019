@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConfForRaports {
-
     public Connection getConnection() {
         Connection connection = null;
         try {

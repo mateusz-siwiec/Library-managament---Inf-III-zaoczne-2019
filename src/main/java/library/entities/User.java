@@ -3,6 +3,10 @@ package library.entities;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -12,25 +16,30 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true)
     private int id;
-
+    @NotNull(message = "required")
+    @Size(min = 2 , max = 40)
     @Column(name = "login", unique = true)
     private String login;
 
+    @NotNull(message = "required")
+    @Size(min = 5 , max = 255)
     @Column(name = "password")
     private String password;
-
+    @NotNull
+    @Size(min = 2 , max = 30)
     @Column(name = "name")
     private String name;
-
+    @NotNull
+    @Size(min = 2 , max = 30)
     @Column(name = "surname")
     private String surname;
-
+    @NotNull
     @Column(name = "age")
     private int age;
-
+    @NotNull
     @Column(name = "pesel")
     private long pesel;
-
+    @NotNull
     @Column(name = "phoneNumber")
     private long phoneNumber;
 
@@ -43,6 +52,17 @@ public class User {
     public User() {
     }
 
+    /**
+     * Class constructor
+     * @param login
+     * @param password
+     * @param name
+     * @param surname
+     * @param age
+     * @param pesel
+     * @param phoneNumber
+     * @param role
+     */
     public User(String login, String password, String name, String surname, int age, long pesel, long phoneNumber, String role) {
         this.login = login;
         this.password = password;
@@ -82,6 +102,10 @@ public class User {
         this.password = password;
     }
 
+    /**
+     * Getters and setters
+     * @return
+     */
     public int getId() {
         return id;
     }

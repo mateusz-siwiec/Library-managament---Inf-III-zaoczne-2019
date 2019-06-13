@@ -53,11 +53,20 @@ public class RegistrationController implements Initializable {
 
     private Stage stage;
 
+    /**
+     * Method to initialize database
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         actions.initDatabase();
     }
 
+    /**
+     * Register to application
+     * @param event
+     */
     @FXML
     public void register(ActionEvent event) {
             User user = new User(
@@ -74,6 +83,12 @@ public class RegistrationController implements Initializable {
             clearRegisterFields();
             labelWrong.setVisible(false);
         }
+
+    /**
+     * Changing screen to Login screen
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void backToLogin(ActionEvent event) throws IOException {
         stage = (Stage) ap.getScene().getWindow();
@@ -83,6 +98,9 @@ public class RegistrationController implements Initializable {
         screen.activate("Login", stage);
     }
 
+    /**
+     * Clearing fields after successful register
+     */
     public void clearRegisterFields() {
         tfAge.clear();
         tfLogin.clear();

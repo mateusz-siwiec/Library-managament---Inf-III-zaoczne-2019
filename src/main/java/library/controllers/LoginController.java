@@ -63,6 +63,12 @@ public class LoginController {
         }
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     * Method to login to our application
+     */
     @FXML
     private void login(ActionEvent event) throws IOException {
 
@@ -113,6 +119,11 @@ public class LoginController {
         }
     }
 
+    /**
+     * Method to changing screen to Register screen
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void goToRegister(ActionEvent event) throws IOException {
         stage = (Stage) anchorPane.getScene().getWindow();
@@ -122,6 +133,10 @@ public class LoginController {
         screen.activate("Registration", stage);
     }
 
+    /**
+     * Method to exit from our application
+     * @param event
+     */
     @FXML
     private void exit(ActionEvent event) {
         Platform.exit();

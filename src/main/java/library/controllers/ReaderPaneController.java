@@ -1,5 +1,6 @@
 package library.controllers;
 
+import PDF.GeneratePdf;
 import com.itextpdf.text.DocumentException;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -23,11 +24,12 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
-import PDF.GeneratePdf;
 
 public class ReaderPaneController implements Initializable {
 
-
+    /**
+     * Fields controller class
+     */
     @FXML
     private ComboBox<Book> comboBookAvailbility;
     @FXML
@@ -77,6 +79,11 @@ public class ReaderPaneController implements Initializable {
         refreshBooksComboBox();
     }
 
+    /**
+     * Take logged user data
+     *
+     * @param user
+     */
     public void takeLoggedUserData(User user) {
         userId = user.getId();
         String phoneNumber = String.valueOf(user.getPhoneNumber());
@@ -92,6 +99,9 @@ public class ReaderPaneController implements Initializable {
         tfPesel.setText(pesel);
     }
 
+    /**
+     * Edit self data
+     */
     @FXML
     private void selfEdit(ActionEvent event) {
 
@@ -110,7 +120,7 @@ public class ReaderPaneController implements Initializable {
             String surname = tfSurname.getText();
             int age = Integer.parseInt(tfAge.getText());
             int phone = Integer.parseInt(tfPhoneNumber.getText());
-            String password = actions.get_SHA_512_SecurePassword(tfPassword.getText(),"securePassword");
+            String password = actions.get_SHA_512_SecurePassword(tfPassword.getText(), "securePassword");
             long pesel = Integer.parseInt(tfPesel.getText());
 
 
@@ -128,6 +138,9 @@ public class ReaderPaneController implements Initializable {
         }
     }
 
+    /**
+     * Load logged user orders into table in application
+     */
     @FXML
     private void loadUserOrdersIntoTable() {
         Transaction transaction = actions.session.beginTransaction();
@@ -178,12 +191,18 @@ public class ReaderPaneController implements Initializable {
         userOrderTable.setItems(orderList);
     }
 
+    /**
+     * Refresh book comboBox
+     */
     private void refreshBooksComboBox() {
         List<Book> allBooks = actions.getAllBooks();
         ObservableList<Book> books = FXCollections.observableArrayList(allBooks);
         comboBookAvailbility.setItems(books);
     }
 
+    /**
+     * Checking book availbility
+     */
     @FXML
     private void checkBookAvailbility() {
         List<Integer> collect = actions.getAllOrders().stream().map(orders -> orders.getBook().getId())
@@ -196,6 +215,11 @@ public class ReaderPaneController implements Initializable {
         }
     }
 
+    /**
+     * Logout from application
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void logout(ActionEvent event) throws IOException {
         stage = (Stage) anchorPane.getScene().getWindow();
@@ -205,9 +229,16 @@ public class ReaderPaneController implements Initializable {
         screen.activate("Login", stage);
     }
 
+    /**
+     * Generating raport from our created library. Generated report is PDF
+     * @param event
+     * @throws FileNotFoundException
+     * @throws DocumentException
+     * @throws SQLException
+     */
     @FXML
     private void generateRaport(ActionEvent event) throws FileNotFoundException, DocumentException, SQLException {
         GeneratePdf generatePdf = new GeneratePdf();
-        generatePdf.generateRaport(event , stage);
+        generatePdf.generateRaport(event, stage);
     }
 }

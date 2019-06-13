@@ -1,6 +1,8 @@
 package library.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "book")
@@ -11,19 +13,24 @@ public class Book {
     private int id;
 
     @Column(name = "title")
+    @NotNull
+    @Size(min = 2 , max = 40)
     private String title;
 
     @Column(name = "author")
+    @NotNull
+    @Size(min = 2 , max = 40)
     private String author;
 
+    @NotNull
     @Column(name = "yearOfPublish")
     private int yearOfPublish;
 
     @OneToOne(mappedBy = "book")
-
     private Orders orders;
 
     /**
+     * Class constructor
      * @param title
      * @param author
      * @param yearOfPublish
@@ -44,6 +51,10 @@ public class Book {
     public Book() {
     }
 
+    /**
+     * Getters and setters
+     * @return
+     */
     public int getId() {
         return id;
     }

@@ -20,6 +20,10 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class AdminPaneController implements Initializable {
+
+    /**
+     * Fields controller class
+     */
     @FXML
     private AnchorPane anchorPane;
     @FXML
@@ -112,6 +116,10 @@ public class AdminPaneController implements Initializable {
 
     }
 
+    /**
+     * Getting logged user data
+     * @param user
+     */
     public void takeLoggedUserData(User user) {
         String phoneNumber = String.valueOf(user.getPhoneNumber());
         String pesel = String.valueOf(user.getPesel());
@@ -128,6 +136,10 @@ public class AdminPaneController implements Initializable {
         startLabel.setText("Hello " + user.getName() + " " + user.getSurname());
     }
 
+    /**
+     * Load users data from database into table
+     * @param event
+     */
     @FXML
     private void loadUsersDataFromDatabaseIntoTable(ActionEvent event) {
         Transaction transaction = actions.session.beginTransaction();
@@ -150,6 +162,10 @@ public class AdminPaneController implements Initializable {
         editUserTable.setItems(usersList);
     }
 
+    /**
+     * adding users
+     * @param event
+     */
     @FXML
     private void addUser(ActionEvent event) {
 
@@ -170,6 +186,9 @@ public class AdminPaneController implements Initializable {
         refreshEditUsersTable();
     }
 
+    /**
+     * Clearing user fields after adding user
+     */
     private void clearAddUserFields() {
         addtfLogin.clear();
         addtfName.clear();
@@ -180,6 +199,9 @@ public class AdminPaneController implements Initializable {
         roleCombobox.getSelectionModel().clearSelection();
     }
 
+    /**
+     * Refreshing user table
+     */
     @FXML
     private void refreshEditUsersTable() {
 
@@ -192,6 +214,10 @@ public class AdminPaneController implements Initializable {
         editUserTable.refresh();
     }
 
+    /**
+     * Edit user
+     * @param event
+     */
     @FXML
     private void editUser(ActionEvent event) {
 
@@ -214,6 +240,9 @@ public class AdminPaneController implements Initializable {
         refreshEditUsersTable();
     }
 
+    /**
+     * Clear user edit fields
+     */
     private void clearEditUserFields() {
         addtfLogin1.clear();
         addtfName1.clear();
@@ -224,6 +253,10 @@ public class AdminPaneController implements Initializable {
         roleCombobox.getSelectionModel().clearSelection();
     }
 
+    /**
+     * Handle edit user table
+     * @param event
+     */
     @FXML
     private void handleEditUserTable(MouseEvent event) {
         User selected = editUserTable.getSelectionModel().getSelectedItem();
@@ -243,6 +276,10 @@ public class AdminPaneController implements Initializable {
         }
     }
 
+    /**
+     * Delete user
+     * @param event
+     */
     @FXML
     private void deleteUser(ActionEvent event) {
 
@@ -254,6 +291,10 @@ public class AdminPaneController implements Initializable {
         refreshEditUsersTable();
     }
 
+    /**
+     * Edit admin
+     * @param event
+     */
     @FXML
     private void editAdmin(ActionEvent event) {
 
@@ -290,6 +331,11 @@ public class AdminPaneController implements Initializable {
         }
     }
 
+    /**
+     * Logout from application
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void logout(ActionEvent event) throws IOException {
         stage = (Stage) anchorPane.getScene().getWindow();

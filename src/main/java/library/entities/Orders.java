@@ -23,7 +23,7 @@ public class Orders {
     private String dateTo;
 
     /**
-     *
+     * Class constructor
      * @param user
      * @param book
      * @param dateFrom
@@ -38,6 +38,11 @@ public class Orders {
 
     public Orders() {
     }
+
+    /**
+     * Getters and setters
+     * @return
+     */
 
     public int getId() {
         return id;
