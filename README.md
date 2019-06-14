@@ -78,10 +78,13 @@ Po popranym zalogowaniu (ewentualnej rejestracji i zalogowaniu) pojawia na się 
 
 Pojawia się informacja, na jakie konto jesteśmy zalogowani. Na kolejne podstrony przechodzimy dzięki górnym zakładkom.
 ![Admin1](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/admin1.PNG)
+
 W tym miejscu administrator może dodać kolejne konta. W polu "role" wybieramy czy to ma być administrator, bibliotekarz, czy też zwykły użytkownik.
 ![Admin2](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/admin2.PNG)
+
 W kolejnej zakładce wyświetlają się wszystkie konta utworzone w systemie. Możemy je tutaj edytować, bądź usuwać.
 ![Admin3](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/admin3.PNG)
+
 Tutaj znajdują się dane dotyczące konta, na które jesteśmy zalogowani. Możemy je tutaj edytować.
 ![Admin4](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/admin4.PNG)
 
@@ -89,18 +92,24 @@ Tutaj znajdują się dane dotyczące konta, na które jesteśmy zalogowani. Moż
 
 Następnym użytkownikiem jest bibliotekarz. Pierwsza zakładka dotyczy obsługi książek. W tabeli wyświetlają się wszystkie obecne książki w bibliotece. Możemy tutaj dodać nową książkę,edytować oraz usuwać obecne.
 ![Blibliotekarz1](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/bibliotekarz1.PNG)
+
 Następna zakładka dotyczy dodawania wypożyczeń. W tym miejscu bibliotekarz wprowadza nowe wypożyczenia podając książkę, użytkownika oraz daty wypożyczenia.
 ![Blibliotekarz2](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/bibliotekarz2.PNG)
+
 W tym miejscu mamy podgląd do wszyskich wypożyczeń. Niepoprawne możemy usunąć przyciskiem poniżej tabeli.
 ![Blibliotekarz3](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/bibliotekarz3.PNG)
+
 Ostatnia zakładka tak jak w przypadku administratora wyświetla dane profilu, na który jesteśmy zalogowani. Możemy je tutaj edytować
 ![Blibliotekarz4](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/bibliotekarz4.PNG)
 
 * Użytkownik
+
 W głównym oknie znajduje się podgląd do wszystkich wypożyczeń książek. Poniżej niego jest przycisk, dzięki któremu możemy wygenerować plik PDF, zawierający wypożyczenia.
 ![Użytkownik1](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/user1.PNG)
+
 Zakłądka ta służy do sprawdzenia dostępności książki, która nas interesuje.
 ![Użytkownik2](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/user2.PNG)
+
 Analogicznie jak w dwóch poprzednich typach kont, są tutaj dane konta, na które jesteśmy zalogowani. W razie konieczności możemy je zmienić.
 ![Użytkownik3](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/user3.PNG)
 
