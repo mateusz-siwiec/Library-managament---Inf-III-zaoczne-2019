@@ -55,6 +55,9 @@ Po zalogowaniu jako administrator:
 
 ![Diagram klas](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/UML/sekwencji.JPG)
 
+## Omówienie programu
 
+Tworząc program postawiliśmy na funkcjonalność, stąd oprawa graficzna jest prosta ażeby nie rozpraszała osoby użytkującej program. Wszystkie opisy są w języku angielskim.
 
+Początkowym oknem 
 
