@@ -55,9 +55,17 @@ Po zalogowaniu jako administrator:
 
 ![Diagram klas](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/UML/sekwencji.JPG)
 
+## Default users
+
+W programie występują 3 rodzaje użytkowników,każdy posiada inne uprawnienia, stąd w ramach testów zostały utworzone trzy konta:
+* administrator - login:"siwy", hasło:"start123", 
+* bibliotekarz - login:"janek", hasło:"start123", 
+* użytkownik - login:"michu", hasło:"start123", 
+
+
 ## Omówienie programu
 
 Tworząc program postawiliśmy na funkcjonalność, stąd oprawa graficzna jest prosta ażeby nie rozpraszała osoby użytkującej program. Wszystkie opisy są w języku angielskim.
 
-Początkowym oknem 
+Początkowym oknem jest ekran logowania. Tutaj wpisujemy swój ek
 
