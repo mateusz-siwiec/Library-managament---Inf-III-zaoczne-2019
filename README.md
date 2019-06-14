@@ -99,7 +99,8 @@ Następna zakładka dotyczy dodawania wypożyczeń. W tym miejscu bibliotekarz w
 W tym miejscu mamy podgląd do wszyskich wypożyczeń. Niepoprawne możemy usunąć przyciskiem poniżej tabeli.
 ![Blibliotekarz3](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/bibliotekarz3.PNG)
 
-Ostatnia zakładka tak jak w przypadku administratora wyświetla dane profilu, na który jesteśmy zalogowani. Możemy je tutaj edytować
+Ostatnia zakładka tak jak w przypadku administratora wyświetla dane profilu, na który jesteśmy zalogowani. Możemy je tutaj edytować.
+
 ![Blibliotekarz4](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/bibliotekarz4.PNG)
 
 * Użytkownik
