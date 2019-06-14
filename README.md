@@ -75,3 +75,34 @@ Początkowym oknem jest ekran logowania. Tutaj wpisujemy swoje dane logowania.
 
 Gdy nie posiadamy konta w programie i chcielibyśmy zostać nowym użytkownikiem, mamy możliwość to zrobić za pomocą formularza Register.
 
+![Rejestracja](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/rejestracja.PNG)
+
+Po popranym zalogowaniu (ewentualnej rejestracji i zalogowaniu) pojawia na się panel główny. Dla każdej grupy jest on inny i posiada inne opcje.
+
+* Administrator
+
+![Admin1](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/admin1.PNG)
+![Admin2](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/admin2.PNG)
+![Admin3](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/admin3.PNG)
+![Admin4](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/admin4.PNG)
+
+* Bibliotekarz
+
+![Blibliotekarz1](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/bibliotekarz1.PNG)
+![Blibliotekarz2](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/bibliotekarz2.PNG)
+![Blibliotekarz3](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/bibliotekarz3.PNG)
+![Blibliotekarz4](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/bibliotekarz4.PNG)
+
+* Użytkownik
+
+![Użytkownik1](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/user1.PNG)
+![Użytkownik2](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/user2.PNG)
+![Użytkownik3](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/user3.PNG)
+![Użytkownik4](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/user4.PNG)
+
+
+
+
+
+
+
