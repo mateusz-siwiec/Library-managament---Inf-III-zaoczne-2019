@@ -67,5 +67,5 @@ W programie występują 3 rodzaje użytkowników,każdy posiada inne uprawnienia
 
 Tworząc program postawiliśmy na funkcjonalność, stąd oprawa graficzna jest prosta ażeby nie rozpraszała osoby użytkującej program. Wszystkie opisy są w języku angielskim.
 
-Początkowym oknem jest ekran logowania. Tutaj wpisujemy swój ek
+Początkowym oknem jest ekran logowania. Tutaj wpisujemy swoje dane logowania 
 
