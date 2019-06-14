@@ -6,33 +6,37 @@
 
 Nasz system bedzie sluzyl do obslugi biblioteki. 
 Na poczatek nowy uzytkownik nie posiadający konta bedzie mogl sie zarejestrowac w naszej aplikacji. Jesli poprawnie przejdzie przez proces rejestracji, będzie mógł się zalogować. Po zalogowaniu jako uzytkownik sytem bedzie udostepnial opcje takie jak:
-- wypozyczanie ksiazek
-- podglad wszystkich ksiazek dostepnych w bibliotece
-- sprawdzanie statystyk dla swojego konta ( ilosc swoich wypozyczen, kary, oraz szczeg?y dotyczace kazdego wypozyczenia)
+- podgląd własnych wypożyczeń,
+- generowanie pdf z wypożyczeniami,
+- zapytanie o dostępność danej książki,
+- aktualizacja danych własnego profilu.
+
 
 Jesli zalogujemy sie do aplikacji jako bibliotekarz to bedziemy mieli opcje takie jak: 
-- Operacje CRUD'owe na czytelnikach
-- Operacje CRUD'owe na ksiazkach
-- Nakladanie kary na czytelnika
-- wszystkie, które posiada uzytkownik.
+- dodawanie, edytowanie oraz usuwanie książek w zbiorach,
+- dodawanie oraz usuwanie wypożyczeń,
+-edycja profilu.
 
 Po zalogowaniu jako administrator:
-- dostęp do wszystkich opcji programu, wraz z opcjami z poziomu użytkownika i bibliotekarza.
-- Operacje CRUD'owe na bibliotekarzach
+- dodawanie użytkowników, blibliotekarzy, administraotrów,
+- Edycja profili użytkowników, blibliotekarzy, administraotrów,
+- edycja własnego profilu.
 
 ## Rodzaje użytkowników w aplikacji
-* Administrator 
-* Bibliotekarz
-* Czytelnik
+W programie występują 3 rodzaje użytkowników,każdy posiada inne uprawnienia, stąd w ramach testów zostały utworzone trzy konta:
+* administrator - login:"siwy", hasło:"start123", 
+* bibliotekarz - login:"janek", hasło:"start123", 
+* użytkownik - login:"michu", hasło:"start123", 
 
 ## Baza danych - dane
-* dane dot. książek - autor, tytuł, data wydania
-* dane dot. wypożyczeń - data od, data do, jaka książka
-* dane dot. użytkowników, bibliotekarza/y oraz użytkowników - imię, nazwisko, nr. tel, pesel
+* tabela book - autor, tytuł, data wydania
+* tabela orders - data od, data do, id książki, id czytelnika
+* tabela user - imię, nazwisko, nr. tel, pesel, wiek, rola, login, hasło
 
 ## Wykorzystane technologie
+* Java 8
 * JavaFX
-* Spring Data
+* Hibernate
 * Maven
 
 ## Autorzy
@@ -55,15 +59,6 @@ Po zalogowaniu jako administrator:
 
 ![Diagram klas](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/UML/sekwencji.JPG)
 
-## Default users
-
-W programie występują 3 rodzaje użytkowników,każdy posiada inne uprawnienia, stąd w ramach testów zostały utworzone trzy konta:
-* administrator - login:"siwy", hasło:"start123", 
-* bibliotekarz - login:"janek", hasło:"start123", 
-* użytkownik - login:"michu", hasło:"start123", 
-
-Konto administratora jest stworzone od początku programu. Administrator może dodawać następnych administratorów. Kontami bilbiotekarzy zarządza wyłącznie administrator, nie mogą oni się wzajemnie dodawać.
-Zwykli użytkownicy mogą tworzyć własne konta za pomocą formularza, do którego jest przycisk na panelu logowania.
 
 ## Omówienie programu
 
@@ -98,7 +93,6 @@ Po popranym zalogowaniu (ewentualnej rejestracji i zalogowaniu) pojawia na się 
 ![Użytkownik1](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/user1.PNG)
 ![Użytkownik2](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/user2.PNG)
 ![Użytkownik3](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/user3.PNG)
-![Użytkownik4](https://github.com/mateusz-siwiec/Library-managament---Inf-III-zaoczne-2019/blob/master/images/user4.PNG)
 
 
 
