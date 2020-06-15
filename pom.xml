@@ -95,7 +95,7 @@
     </dependency>
     <dependency>
         <groupId>org.hibernate</groupId>
-        <version>5.2.4.Final</version>
+        <version>5.3.5.Final</version>
         <artifactId>hibernate-validator</artifactId>
     </dependency>
     <dependency>
